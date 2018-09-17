@@ -2,6 +2,7 @@ package com.vogella.spring.first.di.config;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,23 +12,30 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
 	@Bean
-    public Long getId() {
-        return Long.valueOf(0);
-    }
+	public Long getId() {
+		return Long.valueOf(0);
+	}
 
-    @Bean
-    public String getSummary() {
-        return "Spring DI";
-    }
+	@Bean
+	@Qualifier("summary")
+	public String getSummary() {
+		return "Spring DI";
+	}
 
-    @Bean
-    public Boolean isDone() {
-        return Boolean.FALSE;
-    }
+	@Bean
+	@Qualifier("description")
+	public String getDescription() {
+		return "Dependency in Spring is a powerful feauture for inversion of control.";
+	}
 
-    @Bean
-    public Date getDueDate() {
-        return new Date();
-    }
+	@Bean
+	public Boolean isDone() {
+		return Boolean.FALSE;
+	}
+
+	@Bean
+	public Date getDueDate() {
+		return new Date();
+	}
 
 }

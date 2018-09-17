@@ -10,6 +10,10 @@ public interface ITodo {
 
 	void setSummary(String summary);
 
+	void setDescription(String description);
+
+	String getDescription();
+
 	boolean isDone();
 
 	void setDone(boolean isDone);
