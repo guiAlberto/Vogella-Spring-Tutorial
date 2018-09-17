@@ -2,6 +2,7 @@ package com.vogella.spring.first.di;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,6 +21,7 @@ public class Todo implements ITodo {
 		this(i, "");
 	}
 
+	@Autowired
 	public Todo(long i, String summary) {
 		this.id = i;
 		this.summary = summary;
@@ -45,6 +47,7 @@ public class Todo implements ITodo {
 		return done;
 	}
 
+	@Autowired
 	@Override
 	public void setDone(boolean isDone) {
 		this.done = isDone;
@@ -55,6 +58,7 @@ public class Todo implements ITodo {
 		return dueDate;
 	}
 
+	@Autowired
 	@Override
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
