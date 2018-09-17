@@ -1,12 +1,18 @@
 package com.vogella.spring.first.di;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.vogella.spring.first.di.config.Config;
 
 @SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		// SpringApplication.run(Application.class, args);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+		ITodo todo = context.getBean(ITodo.class);
+		System.out.println(todo);
+		context.close();
 	}
 }
