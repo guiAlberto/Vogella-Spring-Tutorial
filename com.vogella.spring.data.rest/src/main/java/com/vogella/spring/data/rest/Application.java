@@ -32,8 +32,8 @@ public class Application {
 				todoRepo.save(todo);
 
 				RestTemplate restTemplate = new RestTemplate();
-				Todo firstTodo = restTemplate.getForObject("http://localhost:8080/tasks/1", Todo.class);
-				Todo secondTodo = restTemplate.getForObject("http://localhost:8080/tasks/2", Todo.class);
+				Todo firstTodo = restTemplate.getForObject("http://localhost:8080/api/tasks/1", Todo.class);
+				Todo secondTodo = restTemplate.getForObject("http://localhost:8080/api/tasks/2", Todo.class);
 
 				System.out.println(firstTodo);
 				System.out.println(secondTodo);
@@ -43,7 +43,7 @@ public class Application {
 				newTodo.setDescription("Todo added by rest API");
 				newTodo.setDone(true);
 
-				ResponseEntity<Todo> postForEntity = restTemplate.postForEntity("http://localhost:8080/tasks/", newTodo,
+				ResponseEntity<Todo> postForEntity = restTemplate.postForEntity("http://localhost:8080/api/tasks/", newTodo,
 						Todo.class);
 				System.out.println(postForEntity);
 			}
