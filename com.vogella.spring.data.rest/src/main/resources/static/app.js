@@ -1,0 +1,1 @@
+document.write("Hello first JavaScript sample!");
